@@ -7,8 +7,6 @@
 using namespace std;
 namespace fs = std::filesystem;
 
-std::vector<std::string> words_to_remove = { "480p", "720p", "1080p", "2160p", "-DL", "-dl", "WEB", "web", "x265", "x264" };
-
 // Add a space before each word in the series name, if the word starts with an uppercase character
 void format_series_name(string& series) {
     for (int i = 1; i < series.length(); i++) {
@@ -20,43 +18,21 @@ void format_series_name(string& series) {
 }
 
 // Removes specified words from input
-std::string remove_words(std::string& str) {
-    std::string processed_str;
-    std::string word;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            bool found = false;
-            for (std::string w : words_to_remove) {
-                if (word == w) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                processed_str += word + ' ';
-            }
-            word = "";
-        }
-        else {
-            word += str[i];
+void remove_words(string& input) {
+    vector<string> words_to_remove = { "480p", "720p", "1080p", "2160p", "-DL", "-dl", "WEB", "web", "x265", "x264" };
+
+    for (string word : words_to_remove) {
+        size_t found = input.find(word);
+        while (found != string::npos) {
+            input.erase(found, word.length());
+            found = input.find(word);
         }
     }
-    // handle the last word
-    bool found = false;
-    for (std::string w : words_to_remove) {
-        if (word == w) {
-            found = true;
-            break;
-        }
-    }
-    if (!found) {
-        processed_str += word;
-    }
-    return processed_str;
 }
 
 // Extract the series name, season, and episode number from the file name
 void extract_info(string file_name, string& series, int& season, int& episode) {
+    remove_words(file_name); // remove specified words from the file name
     regex pattern("(.*?)(?:[s|S](\\d+)[e|E](\\d+)|[s|S](\\d+)[_|-][e|E](\\d+))");
     smatch match;
     if (regex_search(file_name, match, pattern)) {
@@ -111,7 +87,7 @@ int main() {
         std::string series;
         int season, episode;
 
-        remove_words(series);
+        remove_words(series_name);
         extract_info(entry.path().stem().string(), series, season, episode);
         create_folders(download_dir, series, season, episode);
         move_file(file_path, download_dir, series, season, episode);
