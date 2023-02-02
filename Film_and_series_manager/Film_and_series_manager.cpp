@@ -2,17 +2,27 @@
 #include <filesystem>
 #include <regex>
 #include <algorithm>
-#include <set>
+#include <cctype>
+#include <string>
 
 using namespace std;
 namespace fs = std::filesystem;
 
 // Add a space before each word in the series name, if the word starts with an uppercase character
 void format_series_name(string& series) {
+    transform(series.begin(), series.end(), series.begin(), ::tolower);
+    series[0] = toupper(series[0]);
     for (int i = 1; i < series.length(); i++) {
-        if (isupper(series[i])) {
+        if (isalpha(series[i]) && (series[i - 1] == '.' || series[i - 1] == '-' || series[i - 1] == '_')) {
+            series[i] = toupper(series[i]);
             series.insert(i, " ");
             i++;
+        }
+    }
+    // remove any non-alphabetical characters from the series name, except for the first characters, numbers and space
+    for (int i = 1; i < series.length(); i++) {
+        if (!isalpha(series[i]) && !(series[i - 1] == ' ') && !isdigit(series[i])) {
+            series.erase(i, 1);
         }
     }
 }
@@ -37,14 +47,9 @@ void extract_info(string file_name, string& series, int& season, int& episode) {
     smatch match;
     if (regex_search(file_name, match, pattern)) {
         series = match[1].str();
-        // remove any non-alphabetical characters from the series name, except for the first character
-        for (int i = 1; i < series.length(); i++) {
-            if (!isalpha(series[i])) {
-                series.erase(i, 1);
-                i--;
-            }
-        }
+        
         format_series_name(series);
+
         season = stoi(match[2].str().empty() ? match[4].str() : match[2].str());
         episode = stoi(match[3].str().empty() ? match[5].str() : match[3].str());
     }
