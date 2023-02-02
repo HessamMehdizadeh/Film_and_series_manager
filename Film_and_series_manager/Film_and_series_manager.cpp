@@ -8,22 +8,36 @@
 using namespace std;
 namespace fs = std::filesystem;
 
-// Add a space before each word in the series name, if the word starts with an uppercase character
+// Format the series for create_folder
 void format_series_name(string& series) {
+    int num_digits = 0;
+    // Add a space before each word in the series name, if the word starts with an uppercase character
     transform(series.begin(), series.end(), series.begin(), ::tolower);
     series[0] = toupper(series[0]);
     for (int i = 1; i < series.length(); i++) {
-        if (isalpha(series[i]) && (series[i - 1] == '.' || series[i - 1] == '-' || series[i - 1] == '_')) {
+        if (isalpha(series[i]) && (series[i - 1] == '.' || series[i - 1] == '-' || series[i - 1] == '_' || series[i - 1] == ' ')) {
             series[i] = toupper(series[i]);
-            series.insert(i, " ");
-            i++;
+            series[i - 1] = ' ';
         }
     }
-    // remove any non-alphabetical characters from the series name, except for the first characters, numbers and space
+    // Remove any non-alphabetical characters from the series name, except for the first character, numbers and spaces
     for (int i = 1; i < series.length(); i++) {
-        if (!isalpha(series[i]) && !(series[i - 1] == ' ') && !isdigit(series[i])) {
+        if (!isalpha(series[i]) && !(series[i] == ' ') && !isdigit(series[i])) {
             series.erase(i, 1);
+            i--;
         }
+    }
+    // Remove the released year
+    for (int i = series.length() - 1; i >= 0; i--) {
+        if (isdigit(series[i])) {
+            num_digits++;
+        }
+        else {
+            break;
+        }
+    }
+    if (num_digits >= 4 && series.length() > 4) {
+        series.erase(series.length() - num_digits, num_digits);
     }
 }
 
@@ -79,7 +93,7 @@ bool is_video_file(string file_path) {
 }
 
 int main() {
-    string download_dir = "D:/Series/TEST";
+    string download_dir = "D:/Series";
     string series_name = "*";
 
     for (const auto& entry : fs::recursive_directory_iterator(download_dir)) {
