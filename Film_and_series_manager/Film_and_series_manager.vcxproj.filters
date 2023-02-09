@@ -22,4 +22,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="Film_and_series_manager.manifest">
+      <Filter>Source Files</Filter>
+    </Manifest>
+  </ItemGroup>
 </Project>
