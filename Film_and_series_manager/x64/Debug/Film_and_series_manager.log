@@ -1,3 +1,1 @@
-﻿  Film_and_series_manager.cpp
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(31,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Film_and_series_manager.vcxproj -> C:\Users\hesam\source\repos\Film_and_series_manager\x64\Debug\Film_and_series_manager.exe
+﻿  Film_and_series_manager.vcxproj -> C:\Users\hesam\source\repos\Film_and_series_manager\x64\Debug\Film_and_series_manager.exe

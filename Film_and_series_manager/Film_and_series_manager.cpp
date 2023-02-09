@@ -1,5 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <filesystem>
+#include <wx/wx.h>
+#include <wx/dir.h>
 #include <regex>
 #include <algorithm>
 #include <cctype>
@@ -92,24 +95,38 @@ bool is_video_file(string file_path) {
     return (file_extension == "mkv" || file_extension == "mp4" || file_extension == "mov" || file_extension == "avi");
 }
 
-int main() {
-    string download_dir = "D:/Series";
-    string series_name = "*";
+class The_GUI : public wxApp {
+public:
+    virtual bool OnInit() {
+        wxDirDialog dialog(NULL, "Choose the directory of your series", wxGetCwd(), wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
+        if (dialog.ShowModal() == wxID_CANCEL)
+            return false;
 
-    for (const auto& entry : fs::recursive_directory_iterator(download_dir)) {
-        if (!fs::is_regular_file(entry.path())) // check if the entry is a regular file 
-            continue;
-        std::string file_path = entry.path().string();
-        if (!is_video_file(file_path)) // check if the file is a video file 
-            continue;
+        std::string download_dir = dialog.GetPath().ToStdString();
+        std::string series_name = "*";
 
-        std::string series;
-        int season, episode;
+        for (const auto& entry : fs::recursive_directory_iterator(download_dir)) {
+            if (!fs::is_regular_file(entry.path())) // check if the entry is a regular file 
+                continue;
+            std::string file_path = entry.path().string();
+            if (!is_video_file(file_path)) // check if the file is a video file 
+                continue;
 
-        remove_words(series_name);
-        extract_info(entry.path().stem().string(), series, season, episode);
-        create_folders(download_dir, series, season, episode);
-        move_file(file_path, download_dir, series, season, episode);
+            std::string series;
+            int season, episode;
+
+            remove_words(series_name);
+            extract_info(entry.path().stem().string(), series, season, episode);
+            create_folders(download_dir, series, season, episode);
+            move_file(file_path, download_dir, series, season, episode);
+        }
+
+        return true;
     }
-    return 0;
+};
+
+wxIMPLEMENT_APP(The_GUI);
+
+int main(int argc, char** argv) {
+    return wxEntry(argc, argv);
 }
