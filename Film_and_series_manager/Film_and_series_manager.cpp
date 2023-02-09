@@ -121,6 +121,7 @@ public:
             move_file(file_path, download_dir, series, season, episode);
         }
 
+        wxExit();
         return true;
     }
 };
