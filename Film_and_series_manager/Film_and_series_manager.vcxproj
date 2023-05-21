@@ -71,6 +71,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -124,16 +127,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;wxUSE_ANY;wxUSE_COMPILER_TLS;wxUSE_CONSOLE_EVENTLOOP;wxUSE_DYNLIB_CLASS;wxUSE_EXCEPTIONS;wxUSE_FILE_HISTORY;wxUSE_FILESYSTEM;wxUSE_FS_ARCHIVE;wxUSE_FSVOLUME;wxUSE_FSWATCHER;wxUSE_DYNAMIC_LOADER;wxUSE_INTL;wxUSE_IPV6;wxUSE_LOG;wxUSE_LONGLONG;wxUSE_MIMETYPE;wxUSE_ON_FATAL_EXCEPTION;wxUSE_PRINTF_POS_PARAMS;wxUSE_PROTOCOL;wxUSE_REGEX;wxUSE_SECRETSTORE;wxUSE_STDPATHS;wxUSE_XML;wxUSE_SOCKETS;wxUSE_STD_CONTAINERS;wxUSE_STD_CONTAINERS_COMPATIBLY;wxUSE_STD_STRING_CONV_IN_WXSTRING;wxUSE_STREAMS;wxUSE_STOPWATCH;wxUSE_TEXTBUFFER;wxUSE_TEXTFILE;wxUSE_UNSAFE_WXSTRING_CONV;wxUSE_URL;wxUSE_VARIANT;wxUSE_XLOCALE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(WXWIN)\include\msvc;$(WXWIN)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\wxWidgets-3.1.2\include\msvc;C:\wxWidgets-3.1.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\wxWidgets-3.1.2\lib\vc_x64_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxmsw31u_adv.lib;wxmsw31u_core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

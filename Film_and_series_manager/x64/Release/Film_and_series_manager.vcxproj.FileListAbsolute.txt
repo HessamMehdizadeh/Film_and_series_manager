@@ -1,0 +1,3 @@
+C:\Users\Hessam\source\repos\Film_and_series_manager\Film_and_series_manager\x64\Release\Film_and_series_manager.vcxproj.MdMergeInputs.cache
+C:\Users\Hessam\source\repos\Film_and_series_manager\Film_and_series_manager\x64\Release\Film_and_series_manager.vcxproj.cppwinrt_plat.cache
+C:\Users\Hessam\source\repos\Film_and_series_manager\Film_and_series_manager\x64\Release\Film_and_series_manager.vcxproj.cppwinrt_comp.cache

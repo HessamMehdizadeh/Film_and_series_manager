@@ -1,27 +1,16 @@
 ﻿  Film_and_series_manager.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\filesystem(13): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(12,21): error C2039: 'filesystem': is not a member of 'std'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\regex(59,1): message : see declaration of 'std'
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(12,31): error C2878: 'filesystem': a namespace or class of this name does not exist
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(78,5): error C2653: 'fs': is not a class or namespace name
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(78,9): error C3861: 'create_directories': identifier not found
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(85,10): error C2653: 'fs': is not a class or namespace name
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(85,14): error C3861: 'exists': identifier not found
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(88,5): error C2653: 'fs': is not a class or namespace name
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(88,9): error C2065: 'path': undeclared identifier
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(88,14): error C2146: syntax error: missing ';' before identifier 'new_file_path'
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(88,14): error C2065: 'new_file_path': undeclared identifier
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(89,5): error C2653: 'fs': is not a class or namespace name
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(89,27): error C2065: 'new_file_path': undeclared identifier
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(108,34): error C2653: 'fs': is not a class or namespace name
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(108,1): error C2530: 'entry': references must be initialized
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(108,1): error C3531: 'entry': a symbol whose type contains 'auto' must have an initializer
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(108,32): error C2143: syntax error: missing ';' before ':'
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(108,38): error C3861: 'recursive_directory_iterator': identifier not found
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(108,80): error C2143: syntax error: missing ';' before ')'
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(109,18): error C2653: 'fs': is not a class or namespace name
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(109,22): error C3861: 'is_regular_file': identifier not found
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(124,9): error C2065: 'MyFrame': undeclared identifier
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(124,18): error C2065: 'frame': undeclared identifier
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(124,30): error C2061: syntax error: identifier 'MyFrame'
-C:\Users\hesam\source\repos\Film_and_series_manager\Film_and_series_manager\Film_and_series_manager.cpp(125,9): error C2065: 'frame': undeclared identifier
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(342,1): warning C4005: 'wxUSE_STD_CONTAINERS_COMPATIBLY': macro redefinition
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(342,1): message : 'wxUSE_STD_CONTAINERS_COMPATIBLY' previously declared on the command line
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(353,1): warning C4005: 'wxUSE_STD_CONTAINERS': macro redefinition
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(353,1): message : 'wxUSE_STD_CONTAINERS' previously declared on the command line
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(393,1): warning C4005: 'wxUSE_STD_STRING_CONV_IN_WXSTRING': macro redefinition
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(393,1): message : 'wxUSE_STD_STRING_CONV_IN_WXSTRING' previously declared on the command line
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(587,1): warning C4005: 'wxUSE_IPV6': macro redefinition
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(587,1): message : 'wxUSE_IPV6' previously declared on the command line
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(730,1): warning C4005: 'wxUSE_XML': macro redefinition
+C:\wxWidgets-3.1.2\lib\vc_x64_lib\mswu\wx\setup.h(730,1): message : 'wxUSE_XML' previously declared on the command line
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 1489 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Film_and_series_manager.vcxproj -> C:\Users\Hessam\source\repos\Film_and_series_manager\x64\Release\Film_and_series_manager.exe
